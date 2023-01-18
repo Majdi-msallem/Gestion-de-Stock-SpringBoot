@@ -17,10 +17,13 @@ public class CategoryDto {
 
     private String designation;
 
+    private Integer idEntreprise;
+
+
     @JsonIgnore
     private List<ArticleDto> articles;
 
-    public  CategoryDto fromEntity(Category category){
+    public static   CategoryDto fromEntity(Category category){
         if(category == null){
             return null;
             //ToDo throw an exception
@@ -30,19 +33,23 @@ public class CategoryDto {
                 .id(category.getId())
                 .code(category.getCode())
                 .designation(category.getDesignation())
+                .idEntreprise(category.getIdEntreprise())
                 .build();
     }
 
-    public Category toEntity(CategoryDto categoryDto){
+    public  static  Category toEntity(CategoryDto categoryDto){
         if(categoryDto == null){
             return null;
             //ToDo throw an exception
         }
         //Category -> CategoryDto
-        return Category.builder()
-                .code(categoryDto.getCode())
-                .designation(categoryDto.getDesignation())
-                .build();
+        Category category = new Category();
+                category.setId(categoryDto.getId());
+                category.setCode(categoryDto.getCode());
+                category.setDesignation(categoryDto.getDesignation());
+                category.setIdEntreprise(categoryDto.getIdEntreprise());
+
+        return category;
     }
 
 

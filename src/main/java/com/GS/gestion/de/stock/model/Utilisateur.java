@@ -6,7 +6,6 @@ import lombok.*;
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -28,7 +27,7 @@ public class Utilisateur extends  AbstractEntity {
     private String dateDeNaissance;
 
     @Column(name = "motdepasse")
-    private String motDePasse;
+    private String moteDePasse;
 
     @Embedded
     private Adresse adresse;

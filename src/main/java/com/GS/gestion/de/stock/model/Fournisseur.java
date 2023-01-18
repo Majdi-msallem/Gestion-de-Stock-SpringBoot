@@ -6,7 +6,6 @@ import lombok.*;
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -32,6 +31,9 @@ public class Fournisseur extends AbstractEntity {
 
     @Column(name ="numTel")
     private String numTel;
+
+    @Column(name = "identreprise")
+    private Integer idEntreprise;
 
     @OneToMany(mappedBy = "fournisseur")
     private List<CommandeFournisseur> commandeFournisseurs;

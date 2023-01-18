@@ -7,7 +7,6 @@ import java.time.Instant;
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -24,6 +23,9 @@ public class CommandeFournisseur extends  AbstractEntity {
     @ManyToOne
     @JoinColumn(name = "idfournisseur")
     private Fournisseur fournisseur;
+
+    @Column(name = "identreprise")
+    private Integer idEntreprise;
 
     @OneToMany(mappedBy = "commandeFournisseur")
     private List<LigneCommandeFournisseur> ligneCommandeFournisseurs;

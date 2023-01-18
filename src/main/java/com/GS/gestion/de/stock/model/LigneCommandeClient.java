@@ -6,7 +6,6 @@ import lombok.*;
 import java.math.BigDecimal;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -24,6 +23,9 @@ public class LigneCommandeClient extends AbstractEntity {
 
     @Column(name ="quantite")
     private BigDecimal quantite;
+
+    @Column(name = "identreprise")
+    private Integer idEntreprise;
 
     @Column(name= "prixunitaire")
     private BigDecimal prixUnitaire;
