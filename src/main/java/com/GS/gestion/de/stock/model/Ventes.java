@@ -1,13 +1,14 @@
 package com.GS.gestion.de.stock.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.time.Instant;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -15,6 +16,12 @@ import lombok.NoArgsConstructor;
 @Table(name= "ventes")
 public class Ventes extends AbstractEntity{
 
-    // Fix
+    @Column(name = "code")
     private String code;
+
+    @Column(name = "datevente")
+    private Instant dateVente;
+
+    @Column(name = "commentaire")
+    private String commentaire;
 }
