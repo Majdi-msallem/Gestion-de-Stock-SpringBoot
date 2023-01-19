@@ -1,5 +1,5 @@
 package com.GS.gestion.de.stock.model;
 
 public enum TypeMvStk {
-    ENTREE,SORTIE
+    ENTREE, SORTIE, CORRECTION_POS, CORRECTION_NEG
 }

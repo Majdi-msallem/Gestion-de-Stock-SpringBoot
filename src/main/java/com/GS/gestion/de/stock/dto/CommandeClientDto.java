@@ -1,12 +1,6 @@
 package com.GS.gestion.de.stock.dto;
 
-import com.GS.gestion.de.stock.model.Client;
 import com.GS.gestion.de.stock.model.CommandeClient;
-import com.GS.gestion.de.stock.model.LigneCommandeClient;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.Builder;
 import lombok.Data;
 
@@ -37,6 +31,7 @@ public class CommandeClientDto {
                 .id(commandeClient.getId())
                 .code(commandeClient.getCode())
                 .dateCommande(commandeClient.getDateCommande())
+//                .etatCommande(commandeClient.getEtatCommande())
                 .client(ClientDto.fromEntity(commandeClient.getClient()))
                 .idEntreprise(commandeClient.getIdEntreprise())
                 .build();
@@ -52,7 +47,11 @@ public class CommandeClientDto {
         commandeClient.setCode(dto.getCode());
         commandeClient.setClient(ClientDto.toEntity(dto.getClient()));
         commandeClient.setDateCommande(dto.getDateCommande());
+//        commandeClient.setEtatCommande(dto.getEtatCommande());
         commandeClient.setIdEntreprise(dto.getIdEntreprise());
         return commandeClient;
     }
+//    public boolean isCommandeLivree() {
+//        return EtatCommande.LIVREE.equals(this.etatCommande);
+//    }
 }

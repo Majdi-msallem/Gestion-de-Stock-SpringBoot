@@ -1,17 +1,19 @@
 package com.GS.gestion.de.stock.services;
 
 import com.GS.gestion.de.stock.dto.ArticleDto;
+import com.GS.gestion.de.stock.dto.VentesDto;
 
 import java.util.List;
 
 public interface VentesService {
-    ArticleDto save(ArticleDto dto);
+    VentesDto save(VentesDto dto);
 
-    ArticleDto findById(Integer id);
+    VentesDto findById(Integer id);
 
-    ArticleDto findByCodeArticle(String codeArticle);
+    VentesDto findByCode(String code);
 
-    List<ArticleDto> findAll();
+    List<VentesDto> findAll();
+
     void delete(Integer id);
 
 }

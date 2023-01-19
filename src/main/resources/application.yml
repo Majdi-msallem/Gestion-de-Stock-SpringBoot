@@ -6,7 +6,9 @@ spring:
     username:
     password:
 #
+
   jpa:
+
     hibernate:
       ddl-auto: update
     show-sql: false
@@ -17,3 +19,7 @@ spring:
 
 server:
   port: 8081
+
+flickr:
+  apiKey: cc29df8f962614a2309e23a720e8eb8c
+  apiSecret: 9c46666240b5cdc0
