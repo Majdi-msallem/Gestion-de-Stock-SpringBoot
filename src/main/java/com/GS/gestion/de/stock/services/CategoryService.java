@@ -4,7 +4,7 @@ import com.GS.gestion.de.stock.dto.CategoryDto;
 
 import java.util.List;
 
-public interface CagoryService {
+public interface CategoryService {
     CategoryDto save(CategoryDto dto);
 
     CategoryDto findById(Integer id);
