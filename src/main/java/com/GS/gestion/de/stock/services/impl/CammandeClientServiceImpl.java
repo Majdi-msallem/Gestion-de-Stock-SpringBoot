@@ -99,7 +99,7 @@ public class CammandeClientServiceImpl implements CommandeClientService {
                 ligneCommandeClient.setIdEntreprise(dto.getIdEntreprise());
                 LigneCommandeClient savedLigneCmd = ligneCommandeClientRepository.save(ligneCommandeClient);
 
-                effectuerSortie(savedLigneCmd);
+               // effectuerSortie(savedLigneCmd);
             });
         }
 

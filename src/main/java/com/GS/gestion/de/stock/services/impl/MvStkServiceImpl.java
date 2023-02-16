@@ -43,21 +43,21 @@ public class MvStkServiceImpl implements MvStkService {
 
     @Override
     public MvStkDto entreeStock(MvStkDto dto) {
-        return entreePositive(dto, TypeMvStk.ENTREE);
+        return null;
     }
 
     @Override
     public MvStkDto sortieStock(MvStkDto dto) {
-        return entreePositive(dto, TypeMvStk.SORTIE);
+        return null;
     }
 
     @Override
     public MvStkDto correctionStockPos(MvStkDto dto) {
-        return sortieNegative(dto, TypeMvStk.CORRECTION_POS);
+        return null;
     }
 
     @Override
     public MvStkDto correctionStockNeg(MvStkDto dto) {
-        return sortieNegative(dto, TypeMvStk.CORRECTION_NEG);
+        return null;
     }
 }

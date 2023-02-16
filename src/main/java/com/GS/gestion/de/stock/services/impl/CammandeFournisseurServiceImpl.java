@@ -99,7 +99,7 @@ public class CammandeFournisseurServiceImpl implements CommandeFournisseurServic
                 ligneCommandeFournisseur.setIdEntreprise(savedCmdFrs.getIdEntreprise());
                 LigneCommandeFournisseur saveLigne = ligneCommandeFournisseurRepository.save(ligneCommandeFournisseur);
 
-                effectuerEntree(saveLigne);
+               // effectuerEntree(saveLigne);
             });
         }
 

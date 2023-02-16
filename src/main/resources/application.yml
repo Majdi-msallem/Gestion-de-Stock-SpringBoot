@@ -1,9 +1,11 @@
 
+
+
 spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/gestion_stock?createDatabaseIfNoExist=true&userSSL=false&useUnicode=true
-    username:
+    username: root
     password:
 #
 
@@ -16,10 +18,17 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 
 server:
   port: 8081
 
 flickr:
-  apiKey: cc29df8f962614a2309e23a720e8eb8c
-  apiSecret: 9c46666240b5cdc0
+  apiKey: e88b0e4b2f5fe9a86dff04bc449e812b
+  apiSecret: b1daa0a329fdd91f
+  appKey : 72157720873740439-bc859683c6c0004d
+  appSecret: 91c5e4a7dd48caad
+
+
