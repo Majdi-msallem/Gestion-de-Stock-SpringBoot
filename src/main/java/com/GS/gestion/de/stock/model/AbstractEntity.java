@@ -1,13 +1,12 @@
 package com.GS.gestion.de.stock.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 
@@ -29,4 +28,16 @@ public class AbstractEntity implements Serializable {
     @Column(name="lastModifiedDate")
     @JsonIgnore
     private Instant lastUpdate;
+
+    //avant d'enregistrer ou modifier
+//    @PrePersist
+//     void prePersisit(){
+//        creationDate = Instant.now();
+//    }
+//
+//    @PreUpdate
+//    void preUpdate(){
+//        lastUpdate = Instant.now();
+//    }
+
 }

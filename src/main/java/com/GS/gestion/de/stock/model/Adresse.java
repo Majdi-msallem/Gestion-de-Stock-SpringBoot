@@ -1,11 +1,11 @@
 package com.GS.gestion.de.stock.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+
 import lombok.*;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
 @Data
 @NoArgsConstructor

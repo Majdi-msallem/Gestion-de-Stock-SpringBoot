@@ -1,12 +1,7 @@
 package com.GS.gestion.de.stock.dto;
 
-import com.GS.gestion.de.stock.model.Adresse;
-import com.GS.gestion.de.stock.model.CommandeFournisseur;
 import com.GS.gestion.de.stock.model.Fournisseur;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.OneToMany;
 import lombok.Builder;
 import lombok.Data;
 

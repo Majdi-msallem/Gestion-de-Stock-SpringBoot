@@ -17,12 +17,12 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     private UtilisateurRepository utilisateurRepository;
     private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    public UtilisateurServiceImpl(UtilisateurRepository utilisateurRepository,
-                                  PasswordEncoder passwordEncoder) {
-        this.utilisateurRepository = utilisateurRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
+//    @Autowired
+//    public UtilisateurServiceImpl(UtilisateurRepository utilisateurRepository,
+//                                  PasswordEncoder passwordEncoder) {
+//        this.utilisateurRepository = utilisateurRepository;
+//        this.passwordEncoder = passwordEncoder;
+//    }
 
     @Override
     public UtilisateurDto save(UtilisateurDto dto) {

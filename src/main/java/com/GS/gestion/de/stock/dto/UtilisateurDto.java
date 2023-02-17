@@ -1,10 +1,6 @@
 package com.GS.gestion.de.stock.dto;
 
-import com.GS.gestion.de.stock.model.Adresse;
-import com.GS.gestion.de.stock.model.Entreprise;
-import com.GS.gestion.de.stock.model.Roles;
 import com.GS.gestion.de.stock.model.Utilisateur;
-import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 

@@ -1,7 +1,6 @@
 package com.GS.gestion.de.stock.dto;
 
 import com.GS.gestion.de.stock.model.Adresse;
-import jakarta.persistence.Column;
 import lombok.Builder;
 import lombok.Data;
 

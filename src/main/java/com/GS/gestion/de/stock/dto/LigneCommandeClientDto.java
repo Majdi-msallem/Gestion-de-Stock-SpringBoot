@@ -1,12 +1,7 @@
 package com.GS.gestion.de.stock.dto;
 
-import com.GS.gestion.de.stock.model.Article;
-import com.GS.gestion.de.stock.model.CommandeClient;
 import com.GS.gestion.de.stock.model.LigneCommandeClient;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.Builder;
 import lombok.Data;
 

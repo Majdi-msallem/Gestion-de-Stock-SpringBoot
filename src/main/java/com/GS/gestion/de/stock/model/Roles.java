@@ -1,7 +1,8 @@
 package com.GS.gestion.de.stock.model;
 
-import jakarta.persistence.*;
 import lombok.*;
+
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor

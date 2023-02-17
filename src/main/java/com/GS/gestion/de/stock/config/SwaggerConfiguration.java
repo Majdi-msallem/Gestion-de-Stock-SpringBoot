@@ -2,47 +2,49 @@ package com.GS.gestion.de.stock.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiKey;
-import springfox.documentation.service.AuthorizationScope;
-import springfox.documentation.service.SecurityReference;
 import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Collections;
 import java.util.List;
 
-@Configuration
-@EnableSwagger2
-public class SwaggerConfiguration {
+import static com.GS.gestion.de.stock.utils.Constants.APP_ROOT;
 
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+@Configuration
+public class SwaggerConfiguration {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(
-                        new ApiInfoBuilder()
-                                .description("Gestion de stock API documentation")
-                                .title("Gestion de stock REST API")
-                                .build()
-                )
-                .groupName("REST API V1")
-                //.securityContexts(Collections.singletonList(securityContext()))
-                //.securitySchemes(Collections.singletonList(apiKey()))
-                //.useDefaultResponseMessages(false)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.GS.gestion.de.stock"))
+                .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build();
     }
+//    @Bean
+//    public BCryptPasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
+//    @Bean
+//    public Docket api() {
+//        return new Docket(DocumentationType.SWAGGER_2)
+//                .apiInfo(
+//                        new ApiInfoBuilder()
+//                                .description("Gestion de stock API documentation")
+//                                .title("Gestion de stock REST API")
+//                                .build()
+//                )
+//                .groupName("REST API V1")
+//                //.securityContexts(Collections.singletonList(securityContext()))
+//                //.securitySchemes(Collections.singletonList(apiKey()))
+//                //.useDefaultResponseMessages(false)
+//                .select()
+//                .apis(RequestHandlerSelectors.basePackage("com.GS.gestion.de.stock"))
+//                .paths(PathSelectors.any())
+//                .build();
+//    }
 
 //    private ApiKey apiKey() {
 //        return new ApiKey("JWT", AUTHORIZATION_HEADER, "header");
