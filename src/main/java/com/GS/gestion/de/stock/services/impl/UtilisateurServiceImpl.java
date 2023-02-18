@@ -4,8 +4,6 @@ import com.GS.gestion.de.stock.dto.UtilisateurDto;
 import com.GS.gestion.de.stock.repository.UtilisateurRepository;
 import com.GS.gestion.de.stock.services.UtilisateurService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +13,7 @@ import java.util.List;
 public class UtilisateurServiceImpl implements UtilisateurService {
 
     private UtilisateurRepository utilisateurRepository;
-    private PasswordEncoder passwordEncoder;
+  //  private PasswordEncoder passwordEncoder;
 
 //    @Autowired
 //    public UtilisateurServiceImpl(UtilisateurRepository utilisateurRepository,
