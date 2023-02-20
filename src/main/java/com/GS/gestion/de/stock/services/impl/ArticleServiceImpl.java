@@ -8,6 +8,10 @@ import com.GS.gestion.de.stock.dto.LigneVenteDto;
 import com.GS.gestion.de.stock.exception.EntityNotFoundException;
 import com.GS.gestion.de.stock.exception.ErrorCodes;
 import com.GS.gestion.de.stock.exception.InvalidEntityException;
+import com.GS.gestion.de.stock.exception.InvalidOperationException;
+import com.GS.gestion.de.stock.model.LigneCommandeClient;
+import com.GS.gestion.de.stock.model.LigneCommandeFournisseur;
+import com.GS.gestion.de.stock.model.LigneVente;
 import com.GS.gestion.de.stock.repository.ArticleRepository;
 import com.GS.gestion.de.stock.repository.LigneCommandeClientRepository;
 import com.GS.gestion.de.stock.repository.LigneCommandeFournisseurRepository;
@@ -95,31 +99,52 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<LigneVenteDto> findHistoriqueVentes(Integer idArticle) {
-        return null;
+        return venteRepository.findAllByArticleId(idArticle).stream()
+                .map(LigneVenteDto::fromEntity)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<LigneCommandeClientDto> findHistoriaueCommandeClient(Integer idArticle) {
-        return null;
+        return commandeClientRepository.findAllByArticleId(idArticle).stream()
+                .map(LigneCommandeClientDto::fromEntity)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<LigneCommandeFournisseurDto> findHistoriqueCommandeFournisseur(Integer idArticle) {
-        return null;
+        return commandeFournisseurRepository.findAllByArticleId(idArticle).stream()
+                .map(LigneCommandeFournisseurDto::fromEntity)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<ArticleDto> findAllArticleByIdCategory(Integer idCategory) {
-        return null;
+        return articleRepository.findAllByCategoryId(idCategory).stream()
+                .map(ArticleDto::fromEntity)
+                .collect(Collectors.toList());
     }
 
     @Override
     public void delete(Integer id) {
-        if(id == null) {
-            log.error(("Article ID is null"));
+        if (id == null) {
+            log.error("Article ID is null");
             return;
         }
+        List<LigneCommandeClient> ligneCommandeClients = commandeClientRepository.findAllByArticleId(id);
+        if (!ligneCommandeClients.isEmpty()) {
+            throw new InvalidOperationException("Impossible de supprimer un article deja utilise dans des commandes client", ErrorCodes.ARTICLE_ALREADY_IN_USE);
+        }
+        List<LigneCommandeFournisseur> ligneCommandeFournisseurs = commandeFournisseurRepository.findAllByArticleId(id);
+        if (!ligneCommandeFournisseurs.isEmpty()) {
+            throw new InvalidOperationException("Impossible de supprimer un article deja utilise dans des commandes fournisseur",
+                    ErrorCodes.ARTICLE_ALREADY_IN_USE);
+        }
+        List<LigneVente> ligneVentes = venteRepository.findAllByArticleId(id);
+        if (!ligneVentes.isEmpty()) {
+            throw new InvalidOperationException("Impossible de supprimer un article deja utilise dans des ventes",
+                    ErrorCodes.ARTICLE_ALREADY_IN_USE);
+        }
         articleRepository.deleteById(id);
-
     }
 }
