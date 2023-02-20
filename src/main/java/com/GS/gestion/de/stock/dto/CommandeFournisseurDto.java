@@ -1,6 +1,7 @@
 package com.GS.gestion.de.stock.dto;
 
 import com.GS.gestion.de.stock.model.CommandeFournisseur;
+import com.GS.gestion.de.stock.model.EtatCommande;
 import lombok.Builder;
 import lombok.Data;
 
@@ -16,6 +17,7 @@ public class CommandeFournisseurDto {
     private String code ;
 
     private Instant dateCommande;
+    private EtatCommande etatCommande;
 
     private FournisseurDto fournisseur;
 
@@ -30,6 +32,7 @@ public class CommandeFournisseurDto {
         return CommandeFournisseurDto.builder()
                 .id(commandeFournisseur.getId())
                 .code(commandeFournisseur.getCode())
+                .etatCommande(commandeFournisseur.getEtatCommande())
                 .dateCommande(commandeFournisseur.getDateCommande())
                 .fournisseur(FournisseurDto.fromEntity(commandeFournisseur.getFournisseur()))
                 .idEntreprise(commandeFournisseur.getIdEntreprise())
@@ -46,7 +49,12 @@ public class CommandeFournisseurDto {
         commandeFournisseur.setDateCommande(dto.getDateCommande());
         commandeFournisseur.setFournisseur(FournisseurDto.toEntity(dto.getFournisseur()));
         commandeFournisseur.setIdEntreprise(dto.getIdEntreprise());
+        commandeFournisseur.setEtatCommande(dto.getEtatCommande());
         return commandeFournisseur;
+    }
+
+    public boolean isCommandeLivree() {
+        return EtatCommande.LIVREE.equals(this.etatCommande);
     }
 
 }

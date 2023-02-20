@@ -1,6 +1,7 @@
 package com.GS.gestion.de.stock.dto;
 
 import com.GS.gestion.de.stock.model.CommandeClient;
+import com.GS.gestion.de.stock.model.EtatCommande;
 import lombok.Builder;
 import lombok.Data;
 
@@ -17,11 +18,13 @@ public class CommandeClientDto {
 
     private Instant dateCommande;
 
-    private ClientDto client ;
+    private EtatCommande etatCommande;
+
+    private ClientDto client;
 
     private Integer idEntreprise;
 
-    private List<LigneCommandeClientDto> ligneCommandeClientList;
+    private List<LigneCommandeClientDto> ligneCommandeClients;
 
     public static CommandeClientDto fromEntity(CommandeClient commandeClient) {
         if (commandeClient == null) {
@@ -31,7 +34,7 @@ public class CommandeClientDto {
                 .id(commandeClient.getId())
                 .code(commandeClient.getCode())
                 .dateCommande(commandeClient.getDateCommande())
-//                .etatCommande(commandeClient.getEtatCommande())
+                .etatCommande(commandeClient.getEtatCommande())
                 .client(ClientDto.fromEntity(commandeClient.getClient()))
                 .idEntreprise(commandeClient.getIdEntreprise())
                 .build();
@@ -47,11 +50,11 @@ public class CommandeClientDto {
         commandeClient.setCode(dto.getCode());
         commandeClient.setClient(ClientDto.toEntity(dto.getClient()));
         commandeClient.setDateCommande(dto.getDateCommande());
-//        commandeClient.setEtatCommande(dto.getEtatCommande());
+        commandeClient.setEtatCommande(dto.getEtatCommande());
         commandeClient.setIdEntreprise(dto.getIdEntreprise());
         return commandeClient;
     }
-//    public boolean isCommandeLivree() {
-//        return EtatCommande.LIVREE.equals(this.etatCommande);
-//    }
+    public boolean isCommandeLivree() {
+        return EtatCommande.LIVREE.equals(this.etatCommande);
+    }
 }

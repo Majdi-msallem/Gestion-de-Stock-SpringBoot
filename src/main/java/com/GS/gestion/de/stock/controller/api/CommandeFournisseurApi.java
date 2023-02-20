@@ -3,6 +3,7 @@ package com.GS.gestion.de.stock.controller.api;
 
 import com.GS.gestion.de.stock.dto.CommandeFournisseurDto;
 import com.GS.gestion.de.stock.dto.LigneCommandeFournisseurDto;
+import com.GS.gestion.de.stock.model.EtatCommande;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,8 +18,8 @@ public interface CommandeFournisseurApi {
     @PostMapping(CREATE_COMMANDE_FOURNISSEUR_ENDPOINT)
     CommandeFournisseurDto save(@RequestBody CommandeFournisseurDto dto);
 
-//    @PatchMapping(COMMANDE_FOURNISSEUR_ENDPOINT + "/update/etat/{idCommande}/{etatCommande}")
-//    CommandeFournisseurDto updateEtatCommande(@PathVariable("idCommande") Integer idCommande, @PathVariable("etatCommande") EtatCommande etatCommande);
+    @PatchMapping(COMMANDE_FOURNISSEUR_ENDPOINT + "/update/etat/{idCommande}/{etatCommande}")
+    CommandeFournisseurDto updateEtatCommande(@PathVariable("idCommande") Integer idCommande, @PathVariable("etatCommande") EtatCommande etatCommande);
 
     @PatchMapping(COMMANDE_FOURNISSEUR_ENDPOINT + "/update/quantite/{idCommande}/{idLigneCommande}/{quantite}")
     CommandeFournisseurDto updateQuantiteCommande(@PathVariable("idCommande") Integer idCommande,

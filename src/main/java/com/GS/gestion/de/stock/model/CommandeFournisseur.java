@@ -27,6 +27,10 @@ public class CommandeFournisseur extends  AbstractEntity {
     @Column(name = "identreprise")
     private Integer idEntreprise;
 
+    @Column(name = "etatcommande")
+    @Enumerated(EnumType.STRING)
+    private EtatCommande etatCommande;
+
     @OneToMany(mappedBy = "commandeFournisseur")
     private List<LigneCommandeFournisseur> ligneCommandeFournisseurs;
 }

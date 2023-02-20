@@ -3,6 +3,7 @@ package com.GS.gestion.de.stock.controller;
 import com.GS.gestion.de.stock.controller.api.CommandeFournisseurApi;
 import com.GS.gestion.de.stock.dto.CommandeFournisseurDto;
 import com.GS.gestion.de.stock.dto.LigneCommandeFournisseurDto;
+import com.GS.gestion.de.stock.model.EtatCommande;
 import com.GS.gestion.de.stock.services.CommandeFournisseurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,10 +26,10 @@ public class CommandeFournisseurController implements CommandeFournisseurApi {
         return commandeFournisseurService.save(dto);
     }
 
-//    @Override
-//    public CommandeFournisseurDto updateEtatCommande(Integer idCommande ) {
-//        return commandeFournisseurService.updateEtatCommande(idCommande);
-//    }
+    @Override
+    public CommandeFournisseurDto updateEtatCommande(Integer idCommande, EtatCommande etatCommande) {
+        return commandeFournisseurService.updateEtatCommande(idCommande, etatCommande);
+    }
 
     @Override
     public CommandeFournisseurDto updateQuantiteCommande(Integer idCommande, Integer idLigneCommande, BigDecimal quantite) {

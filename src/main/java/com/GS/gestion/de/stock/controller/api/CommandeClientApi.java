@@ -3,6 +3,7 @@ package com.GS.gestion.de.stock.controller.api;
 
 import com.GS.gestion.de.stock.dto.CommandeClientDto;
 import com.GS.gestion.de.stock.dto.LigneCommandeClientDto;
+import com.GS.gestion.de.stock.model.EtatCommande;
 import io.swagger.annotations.Api;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +18,10 @@ public interface CommandeClientApi {
     @PostMapping(APP_ROOT + "/commandesclients/create")
     ResponseEntity<CommandeClientDto> save(@RequestBody CommandeClientDto dto);
 
-//    @PatchMapping(APP_ROOT + "/commandesclients/update/etat/{idCommande}/{etatCommande}")
-//    ResponseEntity<CommandeClientDto> updateEtatCommande(@PathVariable("idCommande") Integer idCommande);
+
+    @PatchMapping(APP_ROOT + "/commandesclients/update/etat/{idCommande}/{etatCommande}")
+    ResponseEntity<CommandeClientDto> updateEtatCommande(@PathVariable("idCommande") Integer idCommande, @PathVariable("etatCommande") EtatCommande etatCommande);
+
 
     @PatchMapping(APP_ROOT + "/commandesclients/update/quantite/{idCommande}/{idLigneCommande}/{quantite}")
     ResponseEntity<CommandeClientDto> updateQuantiteCommande(@PathVariable("idCommande") Integer idCommande,

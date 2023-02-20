@@ -2,6 +2,7 @@ package com.GS.gestion.de.stock.services;
 
 import com.GS.gestion.de.stock.dto.CommandeClientDto;
 import com.GS.gestion.de.stock.dto.LigneCommandeClientDto;
+import com.GS.gestion.de.stock.model.EtatCommande;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -10,7 +11,7 @@ public interface CommandeClientService {
 
     CommandeClientDto save(CommandeClientDto dto);
 
-   // CommandeClientDto updateEtatCommande(Integer idCommande, EtatCommande etatCommande);
+    CommandeClientDto updateEtatCommande(Integer idCommande, EtatCommande etatCommande);
 
     CommandeClientDto updateQuantiteCommande(Integer idCommande, Integer idLigneCommande, BigDecimal quantite);
 
@@ -30,4 +31,5 @@ public interface CommandeClientService {
     List<LigneCommandeClientDto> findAllLignesCommandesClientByCommandeClientId(Integer idCommande);
 
     void delete(Integer id);
+
 }

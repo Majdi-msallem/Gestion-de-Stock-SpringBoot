@@ -2,6 +2,7 @@ package com.GS.gestion.de.stock.services;
 
 import com.GS.gestion.de.stock.dto.CommandeFournisseurDto;
 import com.GS.gestion.de.stock.dto.LigneCommandeFournisseurDto;
+import com.GS.gestion.de.stock.model.EtatCommande;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -10,7 +11,7 @@ public interface CommandeFournisseurService {
 
     CommandeFournisseurDto save(CommandeFournisseurDto dto);
 
-   // CommandeFournisseurDto updateEtatCommande(Integer idCommande, EtatCommande etatCommande);
+    CommandeFournisseurDto updateEtatCommande(Integer idCommande, EtatCommande etatCommande);
 
     CommandeFournisseurDto updateQuantiteCommande(Integer idCommande, Integer idLigneCommande, BigDecimal quantite);
 
